@@ -1,0 +1,48 @@
+body{
+    background-color: orange;
+}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2:hover{
+    color: white;
+}
+
+#icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+form{
+    margin: 0 auto;
+    width: 250px;
+}
+
+input, label {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+}
+
+label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+#popup{
+    display: block;
+    height: 500px;
+    width: 500px;
+    border: 2px solid white;
+    opacity: .6;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
