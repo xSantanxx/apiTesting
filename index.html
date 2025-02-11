@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="16x16" href="logo.jpg">
     <link rel="stylesheet" href="styles.css">
-    <title>Github Previewer</title>
+    <title>PokeDex Search</title>
 </head>
 <body>
-    <h2>Github<img id="icon" src="logo.jpg" alt="github logo"></h2>
+    <h2>PokeDex Search<img id="icon" src="pokeball.gif" alt="pokeball logo"></h2>
     <div id="textbox">
         <form action="">
             <label for="" >Pokemon Name</label>
-            <input type="text" name="" id="pokeName" placeholder="Enter name"> <button type="button" onclick="fetchData()">Click Me</button><br>
-
-            
+            <input type="text" name="" id="pokeName" placeholder="Enter name"> <button id="enterB" type="button" onclick="fetchData()">Click Me</button><br>
         </form>
+    </div>
+    <div class="buttons">
+        <button class="select" type="button" onclick="">Normal rear</button>
+        <button class="select" type="button" onclick="">Shiny front</button>
+        <button class="select" type="button" onclick="">Shiny rear</button>
+        <button class="select" type="button" onclick="">Default</button>
     </div>
     <div class="popup"> 
         <img src="" alt="Pokemon Sprite" id="pokemonSprite">
     </div>
-
-    <div class="popup"> 
-        <img src="" alt="Pokemon Sprite" id="pokemonSprite2">
+    <div class="buttons">
+        <button type="button" onclick="fetchData()">Description</button>
+        <p id="dscp">hey</p>
     </div>
     <script src="script.js"></script>
 </body>

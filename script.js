@@ -13,15 +13,20 @@ async function fetchData() {
         }
         
         const data = await response.json();
+        // console.log(data);
         const pokemonSprite = data.sprites.front_default;
         const pokemonSprite2 = data.sprites.front_shiny;
+        const dscrpItem = data.stats;
         const img = document.getElementById("pokemonSprite");
-        const img2 = document.getElementById("pokemonSprite2");
+       // const img2 = document.getElementById("pokemonSprite2");
+        const dscrp = document.getElementById("dscp");
+        dscrp.src = dscrpItem;
+        
         img.src = pokemonSprite;
         img.style.display = "block";
 
-        img2.src = pokemonSprite2;
-        img2.style.display = "block";
+        //img2.src = pokemonSprite2;
+       // img2.style.display = "block";
 
         console.log(data);
 
