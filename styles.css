@@ -1,5 +1,6 @@
 body{
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
+    background: linear-gradient(to right, grey 50%, red 50%);
 }
 
 h2{
@@ -9,6 +10,11 @@ h2{
 }
 
 h2:hover{
+    color: white; 
+    /* color: linear-gradient(to right, red 50%, grey 50%); */
+}
+
+label:hover{
     color: white;
 }
 
@@ -70,4 +76,16 @@ input{
 
 #pokemonSprite #pokemonSprite2{
     display: none;
+}
+
+
+#txtBox{
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    /* top: 0; */
+    height: 310px;
+    width: 300px;
+    border: solid 2px white;
+    border-radius: 10px;
 }
