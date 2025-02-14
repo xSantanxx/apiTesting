@@ -16,17 +16,18 @@
         </form>
     </div>
     <div class="buttons">
-        <button class="select" type="button" onclick="">Normal rear</button>
-        <button class="select" type="button" onclick="">Shiny front</button>
-        <button class="select" type="button" onclick="">Shiny rear</button>
-        <button class="select" type="button" onclick="">Default</button>
+        <button class="select" type="button" onclick="backDefault()">Normal rear</button>
+        <button class="select" type="button" onclick="frontShiny()">Shiny front</button>
+        <button class="select" type="button" onclick="backShiny()">Shiny rear</button>
+        <button class="select" type="button" onclick="fetchData()">Default</button>
+        <button class="select" type="button" onclick="clear2()">Clear</button>
     </div>
     <div class="popup"> 
         <img src="" alt="Pokemon Sprite" id="pokemonSprite">
     </div>
     <div class="buttons">
         <button type="button" onclick="fetchData()">Description</button>
-        <p id="dscp">hey</p>
+        <p id="dscp"></p>
     </div>
     <script src="script.js"></script>
 </body>
