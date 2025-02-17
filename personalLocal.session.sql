@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS foodDatabase;
+CREATE DATABASE IF NOT EXISTS entityDatabase;  
+
+USE foodDatabase;
+
+CREATE TABLE IF NOT EXISTS foodItems (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    calories INT NOT NULL
+);
+
+USE entityDatabase;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    calories INT
+);
+
+
+
+

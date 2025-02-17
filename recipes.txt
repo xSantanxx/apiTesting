@@ -1,0 +1,14 @@
+spaghetti_bolognese,700
+chicken_caesar_salad,600
+avocado_toast,300
+vegetable_stir_fry,400
+beef_tacos,350
+grilled_salmon,350
+smoothie_bowl,500
+pretzels,880
+apple,190
+banana,210
+mixed_nuts,170
+coke_12oz,140
+iced_coffee_milk,150
+orange_juice,110
