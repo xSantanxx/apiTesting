@@ -9,6 +9,10 @@ h2{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#pokeName{
+    border-radius: 5px;
+}
+
 h2:hover{
     color: white; 
     /* color: linear-gradient(to right, red 50%, grey 50%); */
@@ -54,7 +58,7 @@ input{
     display: flex;
     height: 300px;
     width: 300px;
-    border: 2px solid white;
+    border: 2px none white;
     opacity: 1;
     border-radius: 10px;
     margin-left: auto;
@@ -68,9 +72,16 @@ input{
 }
 
 .popup img{
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%;
+    /* flex-shrink: 0; */
+    /* min-width: 100%;
+    min-height: 100%; */
+
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* ensures the whole image is visible */
+    max-height: 100%; 
+    /* prevents overflowing */
 }
 
 
@@ -132,4 +143,25 @@ input{
 
 #txtBox p:hover{
     background-color: #e0e0e0;
+}
+
+.popup2{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: #ff6b6b; */
+    background: linear-gradient(to right, grey 50%, red 50%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+.popup2 p{
+    font-family: sans-serif;
+    font-weight: bold;
 }

@@ -21,6 +21,7 @@
         <button class="select" type="button" onclick="backShiny()">Shiny rear</button>
         <button class="select" type="button" onclick="fetchData()">Default</button>
         <button class="select" type="button" onclick="clear2()">Clear</button>
+        <button class="select" type="button" onclick="playAudio()">Audio</button>
     </div>
     <div id="txtBox">
     </div>
@@ -31,11 +32,17 @@
 
     <div id="txtBox2">
     </div>
+
+
+    <div id="errorPopup" class="popup2">
+        <p>Pokemon not found</p>
+        <button onclick="closeError()">Click</button>
+    </div>
     
-    <div class="buttons">
+    <!-- <div class="buttons">
         <button type="button" onclick="fetchData()">Description</button>
         <p id="dscp"></p>
-    </div>
+    </div> -->
     <script src="script.js"></script>
 </body>
 </html>
