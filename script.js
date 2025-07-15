@@ -1,4 +1,6 @@
 //fetchData();
+let pokeData;
+
 
 function clear2(){
     const img = document.getElementById("pokemonSprite");
@@ -6,19 +8,36 @@ function clear2(){
     const box = document.getElementById("txtBox");
     const box2 = document.getElementById("txtBox2");
     const typingBox = document.getElementById("pokeName");
-
-    
     
     box.innerHTML = "";
     box2.innerHTML = "";
     typingBox.value = "";
 
     document.querySelector('button[onclick="playAudio"]').disabled = false;
-
     //alert('Hey');
 }
 
+function defaultButton(pokeData){
+    try{
 
+        if(!pokeData){
+            throw new Error("Pokemon doesn't exist");
+        }
+        // const defRear = pokeData.sprites.back_default;
+        const pokemonAnmSpirite = pokeData.sprites.versions['generation-v']['black-white'].animated.front_default;
+
+        const img = document.getElementById("pokemonSprite");
+
+        // img.src = defRear;
+        img.src = pokemonAnmSpirite
+
+        console.log(pokeData);
+    }
+
+    catch(error){
+        console.error(error);
+    }
+}
 
 async function fetchData() {
 
@@ -33,7 +52,15 @@ async function fetchData() {
         }
         
         const data = await response.json();
-        console.log(data);
+
+        pokeData = data;
+
+        // data is the main piece
+        console.log(pokeData);
+
+        // backDefault(data);
+        // frontShiny(data);
+        // backShiny(data);
 
         const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`);
         const speciesData = await speciesResponse.json();
@@ -42,8 +69,9 @@ async function fetchData() {
 
         showDexEntry(speciesData);
 
-        const pokemonSprite = data.sprites.front_default;
-        const pokemonAnmSpirite = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+        const pokemonSprite = pokeData.sprites.front_default; 
+
+        const pokemonAnmSpirite = pokeData.sprites.versions['generation-v']['black-white'].animated.front_default;
         // const pokemonSprite2 = data.sprites.front_shiny;
         // const dscrpItem = data.stats;
         const img = document.getElementById("pokemonSprite");
@@ -56,7 +84,7 @@ async function fetchData() {
         img.style.visibility = "visible";
         img.style.display = "block";
 
-        showStats(data.stats)
+        showStats(pokeData.stats)
 
         //img2.src = pokemonSprite2;
        // img2.style.display = "block";
@@ -77,19 +105,24 @@ async function fetchData() {
     }
 }
 
-async function playAudio(){
+async function playAudio(pokeData){
 
     try {
-        const pokemonName = document.getElementById("pokeName").value.toLowerCase();
+        // const pokemonName = document.getElementById("pokeName").value.toLowerCase();
 
-        if(!pokemonName) return;
-        // don't proceed if no pokemon is entered
+        // if(!pokemonName) return;
+        // // don't proceed if no pokemon is entered
 
 
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 
-        const data = await response.json();
-        const pokemonID = data.id;
+        // const data = await response.json();
+
+        if(!pokeData){
+            throw new Error("Pokemon doesn't exist");
+        }
+
+        const pokemonID = pokeData.id;
 
         const audio = new Audio();
 
@@ -98,7 +131,6 @@ async function playAudio(){
     audio.onerror = () => {
         console.log("audio not found for", pokemonName);
     }
-
 
         audio.play().catch(error => {
             showError("couldn't play the audio");
@@ -171,28 +203,32 @@ function showDexEntry(speciesData){
 
 
 
-async function backDefault() {
+function backDefault(pokeData) {
 
     try{
 
-        const pokemonName = document.getElementById("pokeName").value.toLowerCase();
-        
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-
-        if(!response.ok){
-            throw new Error("Could not fetch resource");
+        if(!pokeData){
+            throw new Error("Pokemon doesn't exist");
         }
+
+        // const pokemonName = document.getElementById("pokeName").value.toLowerCase();
         
-        const data = await response.json();
-        const defRear = data.sprites.back_default;
-        const pokemonAnmSpirite = data.sprites.versions['generation-v']['black-white'].animated.back_default;
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+        // if(!response.ok){
+        //     throw new Error("Could not fetch resource");
+        // }
+        
+        // const data = await response.json();
+        const defRear = pokeData.sprites.back_default;
+        const pokemonAnmSpirite = pokeData.sprites.versions['generation-v']['black-white'].animated.back_default;
 
         const img = document.getElementById("pokemonSprite");
 
         // img.src = defRear;
         img.src = pokemonAnmSpirite
 
-        console.log(data);
+        console.log(pokeData);
     }
 
     catch(error){
@@ -203,28 +239,33 @@ async function backDefault() {
 
 
 
-async function frontShiny() {
+function frontShiny(pokeData) {
 
     try{
 
-        const pokemonName = document.getElementById("pokeName").value.toLowerCase();
+        // const pokemonName = document.getElementById("pokeName").value.toLowerCase();
         
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 
-        if(!response.ok){
-            throw new Error("Could not fetch resource");
-        }
+        // if(!response.ok){
+        //     throw new Error("Could not fetch resource");
+        // }
         
-        const data = await response.json();
-        const defRear = data.sprites.front_shiny;
-        const pokemonAnmSpirite = data.sprites.versions['generation-v']['black-white'].animated.front_shiny;
+        // const data = await response.json();
+
+        if(!pokeData){
+            throw new Error("Pokemon doesn't exist");
+        }
+
+        const defRear = pokeData.sprites.front_shiny;
+        const pokemonAnmSpirite = pokeData.sprites.versions['generation-v']['black-white'].animated.front_shiny;
 
         const img = document.getElementById("pokemonSprite");
 
         // img.src = defRear;
         img.src = pokemonAnmSpirite;
 
-        console.log(data);
+        console.log(pokeData);
     }
 
     catch(error){
@@ -234,28 +275,33 @@ async function frontShiny() {
 }
 
 
-async function backShiny() {
+function backShiny(pokeData) {
 
     try{
 
-        const pokemonName = document.getElementById("pokeName").value.toLowerCase();
+        // const pokemonName = document.getElementById("pokeName").value.toLowerCase();
         
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 
-        if(!response.ok){
-            throw new Error("Could not fetch resource");
-        }
+        // if(!response.ok){
+        //     throw new Error("Could not fetch resource");
+        // }
         
-        const data = await response.json();
-        const defRear = data.sprites.back_shiny;
-        const pokemonAnmSpirite = data.sprites.versions['generation-v']['black-white'].animated.back_shiny;
+        // const data = await response.json();
+
+        if(!pokeData){
+            throw new Error("Pokemon doesn't exist");
+        }
+
+        const defRear = pokeData.sprites.back_shiny;
+        const pokemonAnmSpirite = pokeData.sprites.versions['generation-v']['black-white'].animated.back_shiny;
 
         const img = document.getElementById("pokemonSprite");
 
         // img.src = defRear;
         img.src = pokemonAnmSpirite;
 
-        console.log(data);
+        console.log(pokeData);
     }
 
     catch(error){

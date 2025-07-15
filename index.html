@@ -10,18 +10,18 @@
 <body>
     <h2>PokeDex Search<img id="icon" src="pokeball.gif" alt="pokeball logo"></h2>
     <div id="textbox">
-        <form action="">
+        <form action="" onsubmit="event.preventDefault(); fetchData();">
             <label for="" >Pokemon Name</label>
             <input type="text" name="" id="pokeName" placeholder="Enter name"> <button id="enterB" type="button" onclick="fetchData()">Click Me</button><br>
         </form>
     </div>
     <div class="buttons">
-        <button class="select" type="button" onclick="backDefault()">Normal rear</button>
-        <button class="select" type="button" onclick="frontShiny()">Shiny front</button>
-        <button class="select" type="button" onclick="backShiny()">Shiny rear</button>
-        <button class="select" type="button" onclick="fetchData()">Default</button>
+        <button class="select" type="button" onclick="backDefault(pokeData)">Normal rear</button>
+        <button class="select" type="button" onclick="frontShiny(pokeData)">Shiny front</button>
+        <button class="select" type="button" onclick="backShiny(pokeData)">Shiny rear</button>
+        <button class="select" type="button" onclick="defaultButton(pokeData)">Default</button>
         <button class="select" type="button" onclick="clear2()">Clear</button>
-        <button class="select" type="button" onclick="playAudio()">Audio</button>
+        <button class="select" type="button" onclick="playAudio(pokeData)">Audio</button>
     </div>
     <div id="txtBox">
     </div>
